@@ -33,13 +33,13 @@ public class TestPoint {
 
 
 //        testPoint.testConstructors(a, b);
-//        testPoint.testSetLocation(a, b);
-        testPoint.testTranslate(a, b);
+//        testPoint.testSetters(a, b);
+//        testPoint.testTranslate(a, b);
 //        testPoint.testReflect(a, b);
 //        testPoint.testReflectX(a, b);
 //        testPoint.testReflectY(a, b);
 //        testPoint.testReflectNegative(a, b);
-//        testPoint.testClone(a, b);
+        testPoint.testClone(a, b);
     }
 
     /**
@@ -94,7 +94,7 @@ public class TestPoint {
     }
 
     /**
-     * Tests the Point constructors, as well as getX() and getY().
+     * Tests the Point constructors, as well as getX(), getY(), and getReference().
      *
      * @param a An integer value for x.
      * @param b An integer value for y.
@@ -122,23 +122,42 @@ public class TestPoint {
         System.out.println("Expect " + a + "," + b + " \nResult " + point.getX() + "," + point.getY() + " \n");
     }
 
-    public void testSetLocation(int a, int b) {
-        System.out.println("********** TEST SETLOCATION, SETX, SETY **********\n");
+    /**
+     * Tests Point.setLocation(), Point.setX() setY(), and Point.setReference.
+     *
+     * @param a An integer value for x.
+     * @param b An integer value for y.
+     */
+    public void testSetters(int a, int b) {
+        System.out.println("********** TEST SETLOCATION, SETX, SETY SETREFERENCE **********\n");
         Point point = new Point(a, b);
         Point q = new Point(a * 2, b * 2);
+        System.out.println("Point point = new Point(" + a + "," + b + ");");
         System.out.println("Expect (" + a + "," + b + ") \nResult " + point + "\n");
-        System.out.println("Expect (" + (2 * a) + "," + (2 * b) + " \nResult " + q + "\n");
+        System.out.println("Point q = new Point(" + (2 * a) + "," + (2 * b) + ");");
+        System.out.println("Expect (" + (2 * a) + "," + (2 * b) + ") \nResult " + q + "\n");
         q.setLocation(point);
+        System.out.println("q.setLocation(point);");
         System.out.println("Expect (" + a + "," + b + ") \nResult " + q + "\n");
         point.setLocation(a * 2, b * 2);
-        System.out.println("Expect (" + (2 * a) + "," + (2 * b) + " \nResult " + point + "\n");
-        point.setX(a * 2);
-        point.setY(b * 2);
-        System.out.println("Expect (" + (2 * a) + "," + (2 * b) + " \nResult " + point + "\n");
+        System.out.println("point.setLocation(" + (2 * a) + "," + (2 * b) + ");");
+        System.out.println("Expect (" + (2 * a) + "," + (2 * b) + ") \nResult " + point + "\n");
+        point.setReference(a, b);
+        System.out.println("point.setReference(a,b);");
+        System.out.println("Expect [(" + (2 * a) + "," + (2 * b) + "),(" + a + "," + b + ")] \n" +
+                "Result " + point.deepToString() + "\n");
+        q.setReference(point);
+        System.out.println("q.setReference(point);");
+        System.out.println("Expect [(" + (2 * a) + "," + (2 * b) + "),(" + a + "," + b + ")] \n" +
+                "Result " + point.deepToString() + "\n");
+        point.setX(a);
+        point.setY(b);
+        System.out.println("point.setX(" + a + "); \npoint.setY(" + b + ");");
+        System.out.println("Expect (" + a + "," + b + ") \nResult " + point + "\n");
     }
 
     /**
-     * Tests the translate(), which translates the point along the x and y axes.
+     * Tests translate(), which translates the point along the x and y axes.
      *
      * @param a An integer value for x. Multiples are used for translation value a.
      * @param b An integer value for y. Multiples are used for translation value b.
@@ -162,7 +181,7 @@ public class TestPoint {
         point.move(a, b);
         System.out.println("point.move(" + a + "," + b + ");");
         System.out.println("Expect (" + a + "," + b + ") \nResult " + point + "\n");
-        Point r = point.moveBy(a,b);
+        Point r = point.moveBy(a, b);
         System.out.println("Point r = point.moveBy(" + a + "," + b + ");");
         System.out.println("Expect (" + a + "," + b + ") \nResult " + point + " (point)");
         System.out.println("Expect (" + (a + a) + "," + (b + b) + ") \nResult " + r + " (r)\n");
@@ -200,6 +219,14 @@ public class TestPoint {
         chartIt.chartIt(chartIt);
     }
 
+    /**
+     * Tests reflect(), which reflects the point across the line y = x.
+     * Point(x,y) will be reflected to Point(y,x).
+     * This is useful for navigating 2D arrays arranged in (row,col) format.
+     *
+     * @param a An integer value for x. Multiples are used for reflection value a.
+     * @param b An integer value for y. Multiples are used for reflection value b.
+     */
     public void testReflect(int a, int b) {
         System.out.println("********** TEST REFLECT **********\n");
         // Perform basic tests and output to the console terminal
@@ -241,6 +268,12 @@ public class TestPoint {
         chartIt.chartIt(chartIt);
     }
 
+    /**
+     * Tests reflectX(), which reflects the point across the x axis.
+     *
+     * @param a An integer value for x. Multiples are used for reflection value a.
+     * @param b An integer value for y. Multiples are used for reflection value b.
+     */
     public void testReflectX(int a, int b) {
         System.out.println("********** TEST REFLECTX **********\n");
         // Perform basic tests and output to the console terminal
@@ -301,6 +334,12 @@ public class TestPoint {
         chartIt.chartIt(chartIt);
     }
 
+    /**
+     * Tests reflectY(), which reflects the point across the y axis.
+     *
+     * @param a An integer value for x. Multiples are used for reflection value a.
+     * @param b An integer value for y. Multiples are used for reflection value b.
+     */
     public void testReflectY(int a, int b) {
         System.out.println("********** TEST REFLECTY **********\n");
         // Perform basic tests and output to the console terminal
@@ -361,6 +400,12 @@ public class TestPoint {
         chartIt.chartIt(chartIt);
     }
 
+    /**
+     * Tests reflectNegative(), which reflects the point across the line -y = x.
+     *
+     * @param a An integer value for x. Multiples are used for reflection value a.
+     * @param b An integer value for y. Multiples are used for reflection value b.
+     */
     public void testReflectNegative(int a, int b) {
         System.out.println("********** TEST REFLECTNEGATIVE **********\n");
         // Perform basic tests and output to the console terminal
@@ -402,6 +447,12 @@ public class TestPoint {
         chartIt.chartIt(chartIt);
     }
 
+    /**
+     * Tests clone and equals overriding methods.
+     *
+     * @param a An integer value for x.
+     * @param b An integer value for y.
+     */
     public void testClone(int a, int b) {
         System.out.println("********** TEST CLONE, EQUALS **********\n");
         // Create a new Point with reference (origin).
@@ -428,5 +479,22 @@ public class TestPoint {
         System.out.println("Expect (" + (a - b) + "," + (b - a) + ") \nResult " + clone);
         System.out.println("clone.getReference();");
         System.out.println("Expect (0,0) \nResult " + clone.getReference() + "\n");
+
+        // Test Point.equals(anotherPoint), including Point.reference.
+        System.out.println("Test Point.equals(anotherPoint). \nExpect true, false, true, false, true.");
+        Point point1 = new Point(a, b);
+        Point point2 = new Point(a, b, new Point(a + 2, b + 2));
+        Point point3 = new Point(a + 2, b + 2);
+        point3.translate(-2, -2);
+        System.out.println(point3.equals(point1));
+        System.out.println(point3.equals(point2));
+        point3.setReference(a + 2, b + 2);
+        System.out.println(point3.equals(point2));
+        point2.setReference(a, b);
+        System.out.println(point3.equals(point2));
+        point1.translate(-2, -2);
+        point1.setReference(a + 2, b + 2);
+        point3.translate(-2, -2);
+        System.out.println(point3.equals(point1));
     }
 }
