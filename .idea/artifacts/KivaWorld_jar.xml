@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KivaWorld:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/KivaWorld_jar</output-path>
+    <root id="archive" name="KivaWorld.jar">
+      <element id="module-output" name="KivaWorld" />
+    </root>
+  </artifact>
+</component>
