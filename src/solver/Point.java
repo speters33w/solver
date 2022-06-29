@@ -76,8 +76,7 @@ public class Point implements Cloneable, Serializable {
      */
     public Point(int x, int y, Point reference) {
         this(x, y);
-        // Reference Point does not have a reference Point
-        this.reference = new Point(reference.getX(), reference.getY());
+        this.reference = reference;
     }
 
     /**

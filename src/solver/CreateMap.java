@@ -101,8 +101,6 @@ public class CreateMap {
             if (obstacleLength > 1) {
                 for (int i = 1; i < obstacleLength; i++) {
                     // Create the next Point in the wall in the current facing direction
-                    // Point getDelta = direction.getDelta();
-                    // obstacle = obstacle.moveBy(getDelta.getX(),getDelta.getY());
                     obstacle = obstacle.moveBy(direction.delta);
                     // Add the new Point to the wall if it is within the map walls
                     if ((obstacle.getX() >= 0) && (obstacle.getX() < mapWidth)
@@ -112,7 +110,6 @@ public class CreateMap {
                     }
                 }
             }
-            //System.out.println(obstacles);
         }
 
 
