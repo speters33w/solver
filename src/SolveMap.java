@@ -34,15 +34,15 @@ public class SolveMap {
      * Solves a selected map from a File.
      * @param file The file with the map to be solved.
      */
-    public static void solve(File file) {
+    public static String solve(File file) {
         Maze maze = new Maze(file);
         Solver solver = new Solver();
         List<Point> path = solver.solve(maze);
         maze.printPath(path);
-        //String commands = solver.constructKivaCommands(path);
+        String commands = solver.constructKivaCommands(path);
         //System.out.println("Kiva Commands:\n" + commands);
         maze.reset();
-        //return commands;
+        return commands;
     }
 }
 

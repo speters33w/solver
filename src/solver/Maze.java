@@ -6,6 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Maze class for the solver.
+ * Creates a 2D array from a file,
+ * and populates the array with objects represented in the maze text file.
+ */
 public class Maze {
     private static final int EMPTY = 0;
     private static final int OBSTACLE = 1;

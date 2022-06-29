@@ -14,10 +14,9 @@ import java.util.stream.Stream;
  * Given a solver.Maze() object, solves the map from starting location to pod location to drop zone location,
  * or from start to end if there is no pod in the map.
  *
- * @see Maze
- *
  * @author StephanPeters (speters33w)
- * @version 20220629.1200
+ * @version 20220629.1800
+ * @see Maze
  */
 public class Solver {
 
@@ -28,31 +27,45 @@ public class Solver {
      * {@code [0] = UP, [1] = RIGHT [2] = DOWN [3] = LEFT}
      * Points are in reflected format [row][col] or (y,x).
      */
-    static final int[][] DIRECTIONS = {
-            {-1, 0}, {0, 1}, {1, 0}, {0, -1}}; //in reflected format [row][col] or (y,x)
+    static final int[][] DIRECTIONS = facingDirection.directions();
 
-    static final Map<facingDirection, Point> DIRECTIONSMAP = Stream.of(new Object[][]{ //in reflected format [row][col] or (y,x)
-            {facingDirection.UP, new Point(-1, 0)},
-            {facingDirection.RIGHT, new Point(0, 1)},
-            {facingDirection.DOWN, new Point(1, 0)},
-            {facingDirection.LEFT, new Point(0, -1)},
-    }).collect(Collectors.toMap(data -> (facingDirection) data[0], data -> (Point) data[1]));
+    private enum facingDirection {
+        UP(new Point(-1, 0)),
+        RIGHT(new Point(0, 1)),
+        DOWN(new Point(1, 0)),
+        LEFT(new Point(0, -1));
 
-    private boolean isPodFound = false;
-    private List<Point> path = new LinkedList<>();
+        final Point delta;
 
-    enum facingDirection{
-        UP(new Point(0, -1)),
-        RIGHT(new Point(1, 0)),
-        DOWN(new Point(0, 1)),
-        LEFT(new Point(-1, 0));
+        facingDirection(Point delta) {
+            this.delta = delta;
+        }
 
-        final Point xyDelta;
+        Point getDelta() {
+            return this.delta;
+        }
 
-        facingDirection(Point xyDelta) {
-            this.xyDelta = xyDelta;
+        static int[][] directions() {
+            int i = -1;
+            final int[][] directions = new int[facingDirection.values().length][2];
+            for (facingDirection value : facingDirection.values()) {
+                i++;
+                directions[i][0] = value.getDelta().getX();
+                directions[i][1] = value.getDelta().getY();
+            }
+            return directions;
         }
     }
+
+    static final Map<facingDirection, Point> DIRECTIONSMAP = Stream.of(new Object[][]{ //in reflected format [row][col] or (y,x)
+            {facingDirection.UP, facingDirection.UP.getDelta()},
+            {facingDirection.RIGHT, facingDirection.RIGHT.getDelta()},
+            {facingDirection.DOWN, facingDirection.DOWN.getDelta()},
+            {facingDirection.LEFT, facingDirection.LEFT.getDelta()},
+    }).collect(Collectors.toMap(data -> (facingDirection) data[0], data -> (Point) data[1]));
+
+    private final List<Point> path = new LinkedList<>();
+
 
     /**
      * This is the main entry point for the maze solver.
@@ -63,7 +76,7 @@ public class Solver {
     public List<Point> solve(Maze maze) {
         List<Point> returnPath = new LinkedList<>();
         //if the map has a pod,
-        if(debugging){
+        if (debugging) {
             System.out.println("Pod location: " + maze.getPodLocation());
         }
         if (maze.getPodLocation() != null) {
@@ -73,7 +86,7 @@ public class Solver {
             Collections.reverse(pathToPod);
             // and add the Points to the return list.
             returnPath.addAll(pathToPod);
-            if(debugging) {
+            if (debugging) {
                 System.out.println(pathToPod);
             }
             // In case there is no path to the pod;
@@ -85,7 +98,7 @@ public class Solver {
             List<Point> pathToDropZone = solver(maze, maze.getDropZoneLocation()); // Points are reflected (y,x) or [row],[col].
             // and add the Points to the return list.
             returnPath.addAll(pathToDropZone);
-            if(debugging) {
+            if (debugging) {
                 System.out.println(pathToDropZone);
             }
             // In case there is no path to the drop zone;
@@ -100,7 +113,7 @@ public class Solver {
             List<Point> pathToPod = solver(maze, maze.getInitialKivaLocation()); // Points are reflected (y,x) or [row],[col].
             Collections.reverse(pathToPod);
             // and send the competed map with the solution to the caller.
-            if(debugging) {
+            if (debugging) {
                 System.out.println(pathToPod);
             }
             returnPath = pathToPod;
@@ -112,7 +125,7 @@ public class Solver {
     /**
      * The main solver method.
      *
-     * @param maze - a floor map in solver.Maze format.
+     * @param maze          - a floor map in solver.Maze format.
      * @param startLocation - the starting location point.
      * @return a List of Points containing the solution.
      */
@@ -139,6 +152,7 @@ public class Solver {
             }
 
 
+            //todo eliminate 2D integer array DIRECTIONS and use a point array from facingDirection enum?
             for (int[] direction : DIRECTIONS) {
                 Point coordinate = new Point(currentPoint.getX() + direction[0], currentPoint.getY() + direction[1], currentPoint);
                 nextToVisit.add(coordinate);
@@ -156,26 +170,29 @@ public class Solver {
      * @return - a List of Points containing the path.
      */
     private List<Point> backtrackPath(Point currentPoint) {
-        Point iter = currentPoint;
+        Point iteration = currentPoint;
 
-        while (iter != null) {
-            path.add(iter);
-            //iter = iter.parent;
-            iter = iter.reference;
+        while (iteration != null) {
+            path.add(iteration);
+            iteration = iteration.reference;
         }
         return path;
     }
 
     /**
      * Creates a set of solution commands specifically for the ATA KivaWorld project.
+     *
      * @param path The solution path returned by Solver.
      * @return String with the Kiva commands.
      */
-    public String constructKivaCommands(List<Point> path){
+    public String constructKivaCommands(List<Point> path) {
+        // initialize method-scope variables
         StringBuilder commands = new StringBuilder();
         facingDirection direction = facingDirection.UP;
         facingDirection directionDesired = facingDirection.UP;
         Point delta = new Point();
+
+        // Iterate over solved path to determine direction of travel.
         for (int i = 0; i < path.size() - 1; i++) {
             Point p = path.get(i);
             Point q = path.get(i + 1);
