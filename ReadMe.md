@@ -31,7 +31,7 @@ Width = 18 Height = 13
 ------------------
 ```
 
-![savemap](img\savemap.png)
+![savemap](img/savemap.png)
 
 
 
@@ -166,7 +166,7 @@ Process finished with exit code 0
 
 ### Translate
 
-![TestTranslate](img\TestTranslate.svg)
+![TestTranslate](img/TestTranslate.svg)
 
 ```java
 ********** POINT TESTS **********
@@ -228,7 +228,7 @@ Process finished with exit code 0
 
 Note: This method can convert `(row,col)` in an `array[][]` to `(x,y)`.
 
-![TestReflect](img\TestReflect.svg)
+![TestReflect](img/TestReflect.svg)
 
 ```
 ********** POINT TESTS **********
