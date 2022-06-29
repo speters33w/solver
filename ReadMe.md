@@ -4,7 +4,7 @@ An XY Point Class, ANSI text floor map generator and BFS maze solver.
 
 This package runs under Java 8.
 
-Dependecies: None, save
+Dependencies: None, save
 
 TestPoint and ChartIt use [JFreeChart](https://mvnrepository.com/artifact/org.jfree/jfreechart/1.5.3), [JCommons](https://mvnrepository.com/artifact/org.jfree/jcommon/1.0.24), and [JFreeSVG](https://mvnrepository.com/artifact/org.jfree/jfreesvg/3.4).
 
