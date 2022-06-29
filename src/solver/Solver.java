@@ -20,6 +20,9 @@ import java.util.stream.Stream;
  * @see Maze
  */
 public class Solver {
+
+    boolean debugging = true;
+
     /**
      * 2D Directions array (ordered coordinate integer pairs)
      * {@code [0] = UP, [1] = RIGHT [2] = DOWN [3] = LEFT}
@@ -44,10 +47,10 @@ public class Solver {
         DOWN(new Point(0, 1)),
         LEFT(new Point(-1, 0));
 
-        final Point delta;
+        final Point xyDelta;
 
-        facingDirection(Point delta) {
-            this.delta = delta;
+        facingDirection(Point xyDelta) {
+            this.xyDelta = xyDelta;
         }
     }
 
@@ -60,6 +63,9 @@ public class Solver {
     public List<Point> solve(Maze maze) {
         List<Point> returnPath = new LinkedList<>();
         //if the map has a pod,
+        if(debugging){
+            System.out.println("Pod location: " + maze.getPodLocation());
+        }
         if (maze.getPodLocation() != null) {
 
             // get the path of points from the Kiva to the pod
@@ -67,7 +73,9 @@ public class Solver {
             Collections.reverse(pathToPod);
             // and add the Points to the return list.
             returnPath.addAll(pathToPod);
-            //System.out.println(pathToPod);
+            if(debugging) {
+                System.out.println(pathToPod);
+            }
             // In case there is no path to the pod;
             if (pathToPod.isEmpty()) {
                 System.out.println("Kiva mission aborted, Kiva can not go to pod location.");
@@ -77,7 +85,9 @@ public class Solver {
             List<Point> pathToDropZone = solver(maze, maze.getDropZoneLocation()); // Points are reflected (y,x) or [row],[col].
             // and add the Points to the return list.
             returnPath.addAll(pathToDropZone);
-            //System.out.println(pathToDropZone);
+            if(debugging) {
+                System.out.println(pathToDropZone);
+            }
             // In case there is no path to the drop zone;
             if (pathToDropZone.isEmpty()) {
                 System.out.println("Kiva mission aborted, Kiva can not go to drop zone location.");
@@ -90,7 +100,9 @@ public class Solver {
             List<Point> pathToPod = solver(maze, maze.getInitialKivaLocation()); // Points are reflected (y,x) or [row],[col].
             Collections.reverse(pathToPod);
             // and send the competed map with the solution to the caller.
-            System.out.println(pathToPod);
+            if(debugging) {
+                System.out.println(pathToPod);
+            }
             returnPath = pathToPod;
         }
         // Send the competed map with the solution to the caller.
@@ -148,6 +160,7 @@ public class Solver {
 
         while (iter != null) {
             path.add(iter);
+            //iter = iter.parent;
             iter = iter.reference;
         }
         return path;
@@ -167,7 +180,7 @@ public class Solver {
             Point p = path.get(i);
             Point q = path.get(i + 1);
             delta = delta.getDelta(p, q);
-            if (p.equals(q)) {
+            if (delta.equals(new Point())) { // If delta is (0,0), pod location
                 commands.append("T");
             }
             if (DIRECTIONSMAP.get(direction).equals(delta)) {
