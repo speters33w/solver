@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Fix &quot;T&quot; in constructKivaCommands not working due to change in Point.equals()">
-      <change afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/TestTranslate.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/savemap.png" afterDir="false" />
+    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Added additional getDelta method to Point">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TestPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solver/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solver/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Point.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,6 +40,9 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.other" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\StephanPeters\OneDrive\Java\IdeaProjects\KivaWorld\img" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="solver" />
     </key>
@@ -60,6 +68,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="QuickDeltaCheck" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sandbox.QuickDeltaCheck" />
+      <module name="KivaWorld" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sandbox.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SolveMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SolveMap" />
       <module name="KivaWorld" />
@@ -77,6 +98,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.TestPoint" />
+        <item itemvalue="Application.QuickDeltaCheck" />
         <item itemvalue="Application.SolveMap" />
         <item itemvalue="Application.KivaSolver" />
         <item itemvalue="Application.CreateMap" />
@@ -99,7 +121,35 @@
       <option name="project" value="LOCAL" />
       <updated>1656517229343</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add ReadMe.md">
+      <created>1656519147624</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656519147624</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Minor formatting changes">
+      <created>1656519209791</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656519209791</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Minor formatting changes">
+      <created>1656519519777</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656519519777</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Minor formatting changes">
+      <created>1656519554990</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1656519554990</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +165,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix &quot;T&quot; in constructKivaCommands not working due to change in Point.equals()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix &quot;T&quot; in constructKivaCommands not working due to change in Point.equals()" />
+    <MESSAGE value="Add ReadMe.md" />
+    <MESSAGE value="Minor formatting changes" />
+    <MESSAGE value="Added additional getDelta method to Point" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added additional getDelta method to Point" />
   </component>
 </project>

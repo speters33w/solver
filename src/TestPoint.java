@@ -32,11 +32,11 @@ public class TestPoint {
         TestPoint testPoint = new TestPoint();
 
 
-//        testPoint.testConstructors(a, b);
+        testPoint.testConstructors(a, b);
 //        testPoint.testSetters(a, b);
 //        testPoint.testTranslate(a, b);
 //        testPoint.testReflect(a, b);
-        testPoint.testReflectX(a, b);
+//        testPoint.testReflectX(a, b);
 //        testPoint.testReflectY(a, b);
 //        testPoint.testReflectNegative(a, b);
 //        testPoint.testClone(a, b);
@@ -104,22 +104,38 @@ public class TestPoint {
         Point origin = new Point();
         Point point = new Point(a, b);
         Point pointWithReference = new Point(a, b, origin);
+
         //Test empty constructor
         System.out.println("Point origin = new Point();");
         System.out.println("Expect (0,0) \nResult " + origin + "\n");
+
         //Test constructor (int x, int y)
         System.out.println("Point point = new Point(" + a + "," + b + ");");
         System.out.println("Expect (" + a + "," + b + ") \nResult " + point + "\n");
         System.out.println("point.getReference(); // Reference is null.");
         System.out.println("Expect null \nResult " + point.getReference() + "\n");
+
         //Test constructor (int x, int y, Point reference)
         System.out.println("Point pointWithReference = new Point(" + a + "," + b + ",origin);");
         System.out.println("Expect (" + a + "," + b + ") \nResult " + pointWithReference);
         System.out.println("Point pointWithReference.getReference();");
         System.out.println("Expect (0,0) \nResult " + pointWithReference.getReference() + "\n");
+
         //Test getters point.getX() point.getY()
         System.out.println("point.getX(); point.getY();");
         System.out.println("Expect " + a + "," + b + " \nResult " + point.getX() + "," + point.getY() + " \n");
+
+        //Test getDelta(p,q)
+        Point p = new Point(a,b);
+        Point q = new Point(a+a,b+a);
+        Point d1 = p.getDelta(q);
+        System.out.println("Point p = new Point(" + a + "," + b + ");");
+        System.out.println("Point q = new Point(" + (a + a) + "," + (b + a) + ");");
+        System.out.println("Point d1 = p.getDelta(q);");
+        System.out.println("Expect (" + a + "," + a + ") \nResult " + d1 + "\n");
+        Point d2 = new Point().getDelta(p,q);
+        System.out.println("Point d2 = new Point().getDelta(p,q);");
+        System.out.println("Expect (" + a + "," + a + ") \nResult " + d2 + "\n");
     }
 
     /**
