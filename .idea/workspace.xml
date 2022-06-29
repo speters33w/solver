@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="">
+    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Fix &quot;T&quot; in constructKivaCommands not working due to change in Point.equals()">
       <change afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/KivaWorld_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/solver/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Point.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/TestTranslate.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/savemap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Solver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +39,7 @@
       <recent name="solver" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.KivaSolver">
+  <component name="RunManager" selected="Application.TestPoint">
     <configuration name="CreateMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="solver.CreateMap" />
       <module name="KivaWorld" />
@@ -70,11 +67,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestPoint" />
+      <module name="KivaWorld" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestPoint" />
+        <item itemvalue="Application.SolveMap" />
         <item itemvalue="Application.KivaSolver" />
         <item itemvalue="Application.CreateMap" />
-        <item itemvalue="Application.SolveMap" />
       </list>
     </recent_temporary>
   </component>
@@ -87,6 +92,29 @@
       <option name="presentableId" value="Default" />
       <updated>1656504033374</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fix &quot;T&quot; in constructKivaCommands not working due to change in Point.equals()">
+      <created>1656517229343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656517229343</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix &quot;T&quot; in constructKivaCommands not working due to change in Point.equals()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix &quot;T&quot; in constructKivaCommands not working due to change in Point.equals()" />
   </component>
 </project>

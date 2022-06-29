@@ -13,15 +13,15 @@ import java.util.stream.Stream;
  * <p>
  * Given a solver.Maze() object, solves the map from starting location to pod location to drop zone location,
  * or from start to end if there is no pod in the map.
- * <p>
- * This is a heavily modified version of com.baeldung.algorithms.maze.solver.Solver.
- * </p>
  *
  * @see Maze
+ *
+ * @author StephanPeters (speters33w)
+ * @version 20220629.1200
  */
 public class Solver {
 
-    boolean debugging = true;
+    boolean debugging = false;
 
     /**
      * 2D Directions array (ordered coordinate integer pairs)

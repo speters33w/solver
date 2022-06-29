@@ -36,10 +36,10 @@ public class TestPoint {
 //        testPoint.testSetters(a, b);
 //        testPoint.testTranslate(a, b);
 //        testPoint.testReflect(a, b);
-//        testPoint.testReflectX(a, b);
+        testPoint.testReflectX(a, b);
 //        testPoint.testReflectY(a, b);
 //        testPoint.testReflectNegative(a, b);
-        testPoint.testClone(a, b);
+//        testPoint.testClone(a, b);
     }
 
     /**

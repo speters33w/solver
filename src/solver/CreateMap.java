@@ -15,7 +15,7 @@ import java.util.Random;
  * This can be a random map, or a default map as a string or FloorMap
  *
  * @author StephanPeters (speters33w)
- * @version 20220628.2000
+ * @version 20220629.1200
  */
 public class CreateMap {
     private final facingDirection[] directions = facingDirection.values();

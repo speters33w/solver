@@ -30,7 +30,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author StephanPeters (speters33w)
- * @version 20220628.2000
+ * @version 20220629.1200
  */
 public class Point implements Cloneable, Serializable {
     /**
