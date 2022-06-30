@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Work on facingDirection enum in Solver">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Fix CreateMap unsolvable floorMaps">
+      <change afterPath="$PROJECT_DIR$/src/CreateMaps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/solver/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/CreateMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/solver/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Maze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Solver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656540325680</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fix CreateMap unsolvable floorMaps">
+      <created>1656550515625</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1656550515641</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +194,7 @@
     <MESSAGE value="Minor formatting changes" />
     <MESSAGE value="Added additional getDelta method to Point" />
     <MESSAGE value="Work on facingDirection enum in Solver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work on facingDirection enum in Solver" />
+    <MESSAGE value="Fix CreateMap unsolvable floorMaps" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix CreateMap unsolvable floorMaps" />
   </component>
 </project>

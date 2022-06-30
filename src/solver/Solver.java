@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  * or from start to end if there is no pod in the map.
  *
  * @author StephanPeters (speters33w)
- * @version 20220629.1800
+ * @version 20220629.2100
  * @see Maze
  */
 public class Solver {
