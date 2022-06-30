@@ -38,6 +38,10 @@ public class Maze {
         }
     }
 
+    public Maze(String map){
+        initializeMaze(map);
+    }
+
     private void initializeMaze(String text) throws IllegalArgumentException {
         if (text == null || (text = text.trim()).length() == 0) {
             throw new IllegalArgumentException("empty lines data");

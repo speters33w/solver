@@ -21,6 +21,7 @@ import java.util.stream.Stream;
 public class Solver {
 
     boolean debugging = false;
+    boolean unsolvable = false;
 
     /**
      * 2D Directions array (ordered coordinate integer pairs)
@@ -28,6 +29,7 @@ public class Solver {
      * Points are in reflected format [row][col] or (y,x).
      */
     static final int[][] DIRECTIONS = facingDirection.directions();
+    static final Point[] DIRECTIONSp = facingDirection.deltas();
 
     private enum facingDirection {
         UP(new Point(-1, 0)),
@@ -43,6 +45,16 @@ public class Solver {
 
         Point getDelta() {
             return this.delta;
+        }
+
+        static Point[] deltas(){
+            int i = -1;
+            final Point[] deltas = new Point[facingDirection.values().length];
+            for (facingDirection value : facingDirection.values()) {
+                i++;
+                deltas[i] = value.getDelta();
+            }
+            return deltas;
         }
 
         static int[][] directions() {
@@ -92,6 +104,7 @@ public class Solver {
             // In case there is no path to the pod;
             if (pathToPod.isEmpty()) {
                 System.out.println("Kiva mission aborted, Kiva can not go to pod location.");
+                this.unsolvable = true;
             }
 
             // Then get the path of points from the pod to the drop zone
@@ -100,10 +113,12 @@ public class Solver {
             returnPath.addAll(pathToDropZone);
             if (debugging) {
                 System.out.println(pathToDropZone);
+                this.unsolvable = false;
             }
             // In case there is no path to the drop zone;
-            if (pathToDropZone.isEmpty()) {
+            if (pathToDropZone.isEmpty() || pathToDropZone.size() == 1) {
                 System.out.println("Kiva mission aborted, Kiva can not go to drop zone location.");
+                this.unsolvable = true;
             }
         }
         // If the map is a simple start-to-finish maze,

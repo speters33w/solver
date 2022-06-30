@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Added additional getDelta method to Point">
-      <change afterPath="$PROJECT_DIR$/solver_sample_map2.txt" afterDir="false" />
+    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Work on facingDirection enum in Solver">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SolveMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SolveMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solver/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/CreateMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/solver/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Maze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Solver.java" afterDir="false" />
     </list>
@@ -35,6 +35,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -42,6 +43,9 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.other" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\StephanPeters\OneDrive\Java\IdeaProjects\KivaWorld" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\StephanPeters\OneDrive\Java\IdeaProjects\KivaWorld\img" />
     </key>
@@ -49,7 +53,7 @@
       <recent name="solver" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.KivaSolver">
+  <component name="RunManager" selected="Application.CreateMap">
     <configuration name="CreateMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="solver.CreateMap" />
       <module name="KivaWorld" />
@@ -75,7 +79,7 @@
       <module name="KivaWorld" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sandbox.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,11 +103,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CreateMap" />
         <item itemvalue="Application.KivaSolver" />
         <item itemvalue="Application.SolveMap" />
         <item itemvalue="Application.TestPoint" />
         <item itemvalue="Application.QuickDeltaCheck" />
-        <item itemvalue="Application.CreateMap" />
       </list>
     </recent_temporary>
   </component>
@@ -158,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656522752050</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Work on facingDirection enum in Solver">
+      <created>1656540325680</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1656540325680</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,6 +188,7 @@
     <MESSAGE value="Add ReadMe.md" />
     <MESSAGE value="Minor formatting changes" />
     <MESSAGE value="Added additional getDelta method to Point" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added additional getDelta method to Point" />
+    <MESSAGE value="Work on facingDirection enum in Solver" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work on facingDirection enum in Solver" />
   </component>
 </project>

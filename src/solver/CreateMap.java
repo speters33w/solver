@@ -22,7 +22,7 @@ public class CreateMap {
     Random random = new Random();
     private final LinkedList<Point> obstacles = new LinkedList<>();
 
-    enum facingDirection{
+    enum facingDirection {
         UP(new Point(0, -1)),
         RIGHT(new Point(1, 0)),
         DOWN(new Point(0, 1)),
@@ -34,6 +34,7 @@ public class CreateMap {
             this.delta = delta;
         }
     }
+
     /**
      * public static default floor map, returns as a String
      * Can be accessed to print the default map, or whatever.
@@ -70,48 +71,40 @@ public class CreateMap {
             drop.move(random.nextInt(mapWidth - 2) + 1, random.nextInt(mapHeight - 3) + 1);
         } while (pod.equals(kiva) || drop.equals(pod) || kiva.equals(drop));
 
-        /* todo put obstacle generator and following into a do while loop that checks with solver.FloorMapSolver
-         * and determine if map is solvable, regenerate obstacles if not.
-         * do {
-         * // <generate obstacles and map>
-         * } while (unsolvable);
-         */
+           // Create obstacles over a random % from 15 to 20% of usable map area
+            for (int obstaclesLeft = ((mapWidth - 2) * (mapHeight - 2) * (random.nextInt(10) + 15)) / 100; obstaclesLeft > 0; ) {
 
-        // Create obstacles over a random % from 15 to 20% of usable map area
-        for (int obstaclesLeft = ((mapWidth - 2) * (mapHeight - 2) * (random.nextInt(10) + 15)) / 100; obstaclesLeft > 0; ) {
+                // Randomly decide in which direction to build an obstacle wall.
+                facingDirection direction = directions[random.nextInt(directions.length)];
+                int obstacleLength = 1;
 
-            // Randomly decide in which direction to build an obstacle wall.
-            facingDirection direction = directions[random.nextInt(directions.length)];
-            int obstacleLength = 1;
+                // Randomly decide how long the wall will be.
+                if (direction == facingDirection.UP || direction == facingDirection.DOWN) {
+                    obstacleLength = random.nextInt(mapHeight - 2) + 1;
+                }
+                if (direction == facingDirection.LEFT || direction == facingDirection.RIGHT) {
+                    obstacleLength = random.nextInt(mapWidth - 2) + 1;
+                }
 
-            // Randomly decide how long the wall will be.
-            if (direction == facingDirection.UP || direction == facingDirection.DOWN) {
-                obstacleLength = random.nextInt(mapHeight - 2) + 1;
-            }
-            if (direction == facingDirection.LEFT || direction == facingDirection.RIGHT) {
-                obstacleLength = random.nextInt(mapWidth - 2) + 1;
-            }
+                // Create anchor Point for wall and add it to obstacles
+                Point obstacle = new Point(random.nextInt(mapHeight - 2) + 1, random.nextInt(mapWidth - 2) + 1);
+                obstacles.add(obstacle);
+                obstaclesLeft--;
 
-            // Create anchor Point for wall and add it to obstacles
-            Point obstacle = new Point(random.nextInt(mapHeight - 2) + 1, random.nextInt(mapWidth - 2) + 1);
-            obstacles.add(obstacle);
-            obstaclesLeft--;
-
-            // Create an obstacle wall from the anchor point
-            if (obstacleLength > 1) {
-                for (int i = 1; i < obstacleLength; i++) {
-                    // Create the next Point in the wall in the current facing direction
-                    obstacle = obstacle.moveBy(direction.delta);
-                    // Add the new Point to the wall if it is within the map walls
-                    if ((obstacle.getX() >= 0) && (obstacle.getX() < mapWidth)
-                            && (obstacle.getY() > 0) && (obstacle.getY() < mapHeight)) {
-                        obstacles.add(obstacle);
-                        obstaclesLeft--;
+                // Create an obstacle wall from the anchor point
+                if (obstacleLength > 1) {
+                    for (int i = 1; i < obstacleLength; i++) {
+                        // Create the next Point in the wall in the current facing direction
+                        obstacle = obstacle.moveBy(direction.delta);
+                        // Add the new Point to the wall if it is within the map walls
+                        if ((obstacle.getX() >= 0) && (obstacle.getX() < mapWidth)
+                                && (obstacle.getY() > 0) && (obstacle.getY() < mapHeight)) {
+                            obstacles.add(obstacle);
+                            obstaclesLeft--;
+                        }
                     }
                 }
             }
-        }
-
 
         // Create the basic map frame
         System.out.println("Width = " + mapWidth + " Height = " + mapHeight);
@@ -167,9 +160,17 @@ public class CreateMap {
      * @return The generated map in String format.
      */
     public String randomMapString() {
-        int mapWidth = random.nextInt(15) + 10;
-        int mapHeight = random.nextInt(5) + 10;
-        return randomMapString(mapWidth, mapHeight);
+        String map;
+        Solver solver;
+        do {
+            solver = new Solver();
+            int mapWidth = random.nextInt(15) + 10;
+            int mapHeight = random.nextInt(5) + 10;
+            map = randomMapString(mapWidth, mapHeight);
+            Maze floormap = new Maze(map);
+            solver.solve(floormap);
+        } while (solver.unsolvable);
+        return map;
     }
 
     // The following two FloorMap methods should be commented out for package independence from the ATA KivaWorld project.
