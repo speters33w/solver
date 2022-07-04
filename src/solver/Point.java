@@ -227,16 +227,16 @@ public class Point implements Cloneable, Serializable {
         this.x = ordinate;
         this.y = abscissa;
     }
-    //todo public void reflect(a,b)  (x,y)→(y+a,x+b)
+
     /**
-     * Reflects of the Point {@code (x,y)} in this manner: {@code (x,y)→(y+a,x+b)},
-     * reversing the {@code (x,y)} coordinate values to {@code (y,x)}.
+     * Reflects of the Point {@code (x,y)} across the line {@code y = x + a},
+     * changing the coordinate values to {@code (y-a,x+a)}.
      */
-    public void reflect(int a, int b) {
+    public void reflect(int a) {
         int abscissa = x;
         int ordinate = y;
-        this.x = ordinate + a;
-        this.y = abscissa + b;
+        this.x = ordinate - a;
+        this.y = abscissa + a;
     }
 
     /**
@@ -278,14 +278,13 @@ public class Point implements Cloneable, Serializable {
     }
 
     /**
-     * Reflects of the Point {@code (x,y)} across the line {@code y = -x},
-     * reversing and negating the {@code (x,y)} coordinate values to {@code (-y,-x)}.
+     * Reflects of the Point {@code (x,y)} across the line {@code y=x},
+     * reversing the {@code (x,y)} coordinate values to {@code (y,x)},
+     * then translates the coordinates to {@code (y+h,x+k)}
      */
-    public void reflectNegative() {
-        int abscissa = -x;
-        int ordinate = -y;
-        this.x = ordinate;
-        this.y = abscissa;
+    public void glide(int h, int k) {
+        this.reflect();
+        this.translate(h,k);
     }
 
     /**
@@ -450,7 +449,7 @@ public class Point implements Cloneable, Serializable {
      * where {@code (a,b)} are the coordinates of the point's reference point.
      */
     public String deepToString() {
-        if(this.reference != null) {
+        if (this.reference != null) {
             return "[" + this + ", (" + this.reference.x + "," + this.reference.y + ")]";
         } else {
             return "[" + this + ", (null)]";

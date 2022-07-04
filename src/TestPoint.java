@@ -35,7 +35,7 @@ public class TestPoint {
 //        testPoint.testConstructors(a, b);
 //        testPoint.testSetters(a, b);
 //        testPoint.testTranslate(a, b);
-//        testPoint.testReflect(a, b);
+        testPoint.testReflect(a, b);
 //        testPoint.testReflectX(a, b);
 //        testPoint.testReflectY(a b);
 //        testPoint.testReflectNegative(a, b);
@@ -282,20 +282,40 @@ public class TestPoint {
         // Re-create original shape and reflect all points.
         reflectedPointsArray = createShape(a, b, false);
         for (Point reflectedPoint : reflectedPointsArray) {
-            reflectedPoint.reflect(a/b+2, b/a-2);
+            reflectedPoint.reflect(a);
         }
         System.out.println("for(Point point : pointsArray){");
-        System.out.println(padLeft(4) + "point.reflect();");
+        System.out.println(padLeft(4) + "point.reflect("+ a + ");");
         System.out.println("}");
-        System.out.println("Expect [(" + b + "," + a + "), ("
-                + (2 * b) + "," + (2 * a) + "), ("
-                + b + "," + (4 * a) + "), ("
-                + b + "," + a + ")] \nResult "
+        //todo fix expect lines in TestPoint.testReflect(a)
+        System.out.println("Expect [(" + (b - a) + "," + (2 * a) + "), ("
+                + (2 * b - a) + "," + (3 * a) + "), ("
+                + (b - a) + "," + (5 * a) + "), ("
+                + (b - a) + "," + (a + a) + ")] \nResult "
                 + Arrays.deepToString(reflectedPointsArray) + "\n");
         //Add the reflected Points[] array to an XYSeriesCollection
         xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
                 "for(Point point : points){point.reflect("
-        + (a/b+2) + "," + (b/a-2) + "));}"));
+        + a + ");}"));
+
+        // Re-create original shape and reflect all points.
+        reflectedPointsArray = createShape(a, b, false);
+        for (Point reflectedPoint : reflectedPointsArray) {
+            reflectedPoint.glide(a,b);
+        }
+        System.out.println("for(Point point : pointsArray){");
+        System.out.println(padLeft(4) + "point.glide("+ a + "," + b + ");");
+        System.out.println("}");
+        //todo fix expect lines in TestPoint.testReflect.glide
+        System.out.println("Expect [(" + (b-a) + "," + (a+b) + "), ("
+                + (2 * b - a) + "," + (2 * a + b) + "), ("
+                + (b-a) + "," + (4 * a) + "), ("
+                + (b-a) + "," + (a+b) + ")] \nResult "
+                + Arrays.deepToString(reflectedPointsArray) + "\n");
+        //Add the reflected Points[] array to an XYSeriesCollection
+        xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
+                "for(Point point : points){point.glide("
+                        + a + "," + b +");}"));
 
         ChartIt chartIt = new ChartIt(xySeriesCollection);
         chartIt.setWindowTitle("Test Point.reflect()");
@@ -431,53 +451,6 @@ public class TestPoint {
 
         ChartIt chartIt = new ChartIt(xySeriesCollection);
         chartIt.setWindowTitle("Test Point.reflectY()");
-        chartIt.chartIt(chartIt);
-    }
-
-    /**
-     * Tests reflectNegative(), which reflects the point across the line -y = x.
-     *
-     * @param a An integer value for x. Multiples are used for reflection value a.
-     * @param b An integer value for y. Multiples are used for reflection value b.
-     */
-    public void testReflectNegative(int a, int b) {
-        System.out.println("********** TEST REFLECTNEGATIVE **********\n");
-        // Perform basic tests and output to the console terminal
-        Point point = new Point(a, b, new Point(a, b));
-        System.out.println("Point point = new Point(" + a + "," + b + ");");
-        System.out.println("Expect (" + a + "," + b + ") \nResult " + point + "\n");
-        point.reflectNegative();
-        System.out.println("point.reflectNegative();");
-        System.out.println("Expect (" + -b + "," + -a + ") \nResult " + point + "\n");
-        System.out.println("point.getReference();");
-        System.out.println("Expect (" + a + "," + b + ") \nResult " + point.getReference() + "\n");
-
-        // Convert a Points[] array shape to an XYSeries for the JFreeChart XYChart chart display.
-        XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
-        Point[] originalPointsArray = createShape(a, b, true);
-        // Convert the Points[] array to an XYSeriesCollection
-        xySeriesCollection.addSeries(xySeries(originalPointsArray,
-                "Point[] points = {new Point(" + a + "," + b + "),...}"));
-
-        // Re-create original shape and reflect all points.
-        Point[] reflectedPointsArray = createShape(a, b, false);
-        for (Point reflectedPoint : reflectedPointsArray) {
-            reflectedPoint.reflectNegative();
-        }
-        System.out.println("for(Point point : pointsArray){");
-        System.out.println(padLeft(4) + "point.reflectNegative();");
-        System.out.println("}");
-        System.out.println("Expect [(" + -b + "," + -a + "), ("
-                + -(2 * b) + "," + -(2 * a) + "), ("
-                + -b + "," + -(4 * b) + "), ("
-                + -b + "," + -a + ")] \nResult "
-                + Arrays.deepToString(reflectedPointsArray) + "\n");
-        //Add the reflected Points[] array to an XYSeriesCollection
-        xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
-                "for(Point point : points){point.reflectNegative();}"));
-
-        ChartIt chartIt = new ChartIt(xySeriesCollection);
-        chartIt.setWindowTitle("Test Point.reflectNegative()");
         chartIt.chartIt(chartIt);
     }
 

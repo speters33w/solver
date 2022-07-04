@@ -247,7 +247,7 @@ Note: This method can convert `(row,col)` in an `array[][]` to `(x,y)`.
 ![TestReflect](img/TestReflect.svg)
 
 ```java
-********** POINT TESTS **********
+        ********** POINT TESTS **********
 
         a = 7, b = 4
 
@@ -279,13 +279,20 @@ Note: This method can convert `(row,col)` in an `array[][]` to `(x,y)`.
         Result [(4,7), (8,14), (4,28), (4,7)]
 
         for(Point point : pointsArray){
-            point.reflect();
+            point.reflect(7);
         }
-        Expect [(7,5), (11,12), (7,26), (7,5)]
-        Result [(7,5), (11,12), (7,26), (7,5)]
+        Expect [(-3,14), (1,21), (-3,35), (-3,14)]
+        Result [(-3,14), (1,21), (-3,35), (-3,14)]
+
+        for(Point point : pointsArray){
+            point.reflect(7,4);
+        }
+        Expect [(11,11), (15,18), (11,32), (11,11)]
+        Result [(11,11), (15,18), (11,32), (11,11)]
 
 
         Process finished with exit code 0
+
 
 ```
 

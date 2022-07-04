@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Fix CreateMap unsolvable floorMaps">
-      <change afterPath="$PROJECT_DIR$/img/TestReflectX.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/TestReflectY.svg" afterDir="false" />
+    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Update ReadMe.md and img/svg.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/img/TestReflect.svg" beforeDir="false" afterPath="$PROJECT_DIR$/img/TestReflect.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/TestReflectX.svg" beforeDir="false" afterPath="$PROJECT_DIR$/img/TestReflectX.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/TestReflectY.svg" beforeDir="false" afterPath="$PROJECT_DIR$/img/TestReflectY.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/TestTranslate.svg" beforeDir="false" afterPath="$PROJECT_DIR$/img/TestTranslate.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChartIt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChartIt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TestPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kivaworld/FloorMapObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kivaworld/FloorMapObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kivaworld/KeyboardResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kivaworld/KeyboardResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/solver/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/CreateMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/solver/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Point.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656551028041</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update TestPoint and ReadMe.md documentation.">
+      <created>1656952358961</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656952358961</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +217,8 @@
     <MESSAGE value="Added additional getDelta method to Point" />
     <MESSAGE value="Work on facingDirection enum in Solver" />
     <MESSAGE value="Fix CreateMap unsolvable floorMaps" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix CreateMap unsolvable floorMaps" />
+    <MESSAGE value="Update TestPoint and ReadMe.md documentation." />
+    <MESSAGE value="Update ReadMe.md and img/svg." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update ReadMe.md and img/svg." />
   </component>
 </project>
