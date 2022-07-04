@@ -30,7 +30,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author StephanPeters (speters33w)
- * @version 20220629.1200
+ * @version 20220704.1100
  */
 public class Point implements Cloneable, Serializable {
     /**
@@ -226,6 +226,17 @@ public class Point implements Cloneable, Serializable {
         int ordinate = y;
         this.x = ordinate;
         this.y = abscissa;
+    }
+    //todo public void reflect(a,b)  (x,y)→(y+a,x+b)
+    /**
+     * Reflects of the Point {@code (x,y)} in this manner: {@code (x,y)→(y+a,x+b)},
+     * reversing the {@code (x,y)} coordinate values to {@code (y,x)}.
+     */
+    public void reflect(int a, int b) {
+        int abscissa = x;
+        int ordinate = y;
+        this.x = ordinate + a;
+        this.y = abscissa + b;
     }
 
     /**
@@ -440,9 +451,9 @@ public class Point implements Cloneable, Serializable {
      */
     public String deepToString() {
         if(this.reference != null) {
-            return "[" + this + ",(" + this.reference.x + "," + this.reference.y + ")]";
+            return "[" + this + ", (" + this.reference.x + "," + this.reference.y + ")]";
         } else {
-            return "[" + this + ",(null)]";
+            return "[" + this + ", (null)]";
         }
     }
 }

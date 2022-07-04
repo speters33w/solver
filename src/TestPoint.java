@@ -32,12 +32,12 @@ public class TestPoint {
         TestPoint testPoint = new TestPoint();
 
 
-        testPoint.testConstructors(a, b);
+//        testPoint.testConstructors(a, b);
 //        testPoint.testSetters(a, b);
 //        testPoint.testTranslate(a, b);
 //        testPoint.testReflect(a, b);
 //        testPoint.testReflectX(a, b);
-//        testPoint.testReflectY(a, b);
+//        testPoint.testReflectY(a b);
 //        testPoint.testReflectNegative(a, b);
 //        testPoint.testClone(a, b);
     }
@@ -278,6 +278,24 @@ public class TestPoint {
         //Add the reflected Points[] array to an XYSeriesCollection
         xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
                 "for(Point point : points){point.reflect();}"));
+
+        // Re-create original shape and reflect all points.
+        reflectedPointsArray = createShape(a, b, false);
+        for (Point reflectedPoint : reflectedPointsArray) {
+            reflectedPoint.reflect(a/b+2, b/a-2);
+        }
+        System.out.println("for(Point point : pointsArray){");
+        System.out.println(padLeft(4) + "point.reflect();");
+        System.out.println("}");
+        System.out.println("Expect [(" + b + "," + a + "), ("
+                + (2 * b) + "," + (2 * a) + "), ("
+                + b + "," + (4 * a) + "), ("
+                + b + "," + a + ")] \nResult "
+                + Arrays.deepToString(reflectedPointsArray) + "\n");
+        //Add the reflected Points[] array to an XYSeriesCollection
+        xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
+                "for(Point point : points){point.reflect("
+        + (a/b+2) + "," + (b/a-2) + "));}"));
 
         ChartIt chartIt = new ChartIt(xySeriesCollection);
         chartIt.setWindowTitle("Test Point.reflect()");

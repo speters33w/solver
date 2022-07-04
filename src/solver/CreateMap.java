@@ -15,7 +15,7 @@ import java.util.Random;
  * This can be a random map, or a default map as a string or FloorMap
  *
  * @author StephanPeters (speters33w)
- * @version 20220629.2100
+ * @version 20220704.1100
  */
 public class CreateMap {
     private final facingDirection[] directions = facingDirection.values();
@@ -199,6 +199,7 @@ public class CreateMap {
      * @param map String to be saved to the file
      */
     public void saveFile(String map) {
+        //todo return String with relative filepath for auto-solve
         try {
             File path;
             JFileChooser fileChooser = new JFileChooser();

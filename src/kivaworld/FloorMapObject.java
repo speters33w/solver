@@ -9,16 +9,19 @@ import java.util.Optional;
  *
  * The valueOf(String) method provided by all enumerations won't work because it uses the enumeration value's name, not its map symbol.
  * Use fromChar(char) to convert a char to a FloorMapObject.
+ *
+ * @version 20220704.1100
  */
+//20220704 added no-break space ( ) and # as valid char representations.
 public enum FloorMapObject {
     /**
      * An empty square that Kiva is welcome to tread upon.
      */
-    EMPTY(" "),
+    EMPTY("  "),
     /**
      * An obstacle that Kiva cannot walk into/through.
      */
-    OBSTACLE("|-*"),
+    OBSTACLE("*|-#"),
     /**
      * A pod with inventory that Kiva can pick up. Kiva must be ON this location to take the pod.
      */
@@ -51,7 +54,7 @@ public enum FloorMapObject {
     }
 
     private static Map<Character, FloorMapObject> registerCharMappings() {
-        //todo check upcasting / downcasting mapping in registerCharMappings, Map or HashMap?
+        //todo check upcasting / downcasting mapping in FloorMapObject.registerCharMappings, Map or HashMap?
         Map<Character, FloorMapObject> mapping = new HashMap();
         FloorMapObject[] var1 = values();
         int var2 = var1.length;
@@ -67,8 +70,8 @@ public enum FloorMapObject {
 
     /**
      * Returns a valid char representation for the object.
-     * For a FloorMapObject that is representable by more than one possible, char, one will be selected,
-     *     but no guarantee about which it will be other than that it is a valid representation of that object type.
+     * For a FloorMapObject that is representable by more than one possible char,
+     *     the first char in the string is returned.
      *
      * @return valid char representation of the object
      */

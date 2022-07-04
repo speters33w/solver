@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Fix CreateMap unsolvable floorMaps">
-      <change afterPath="$PROJECT_DIR$/src/CreateMaps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/TestReflectX.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/TestReflectY.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/TestReflect.svg" beforeDir="false" afterPath="$PROJECT_DIR$/img/TestReflect.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kivaworld/FloorMapObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kivaworld/FloorMapObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kivaworld/KeyboardResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kivaworld/KeyboardResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/solver/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/CreateMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solver/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Point.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +41,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -51,7 +60,7 @@
       <recent name="solver" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CreateMap">
+  <component name="RunManager" selected="Application.TestPoint">
     <configuration name="CreateMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="solver.CreateMap" />
       <module name="KivaWorld" />
@@ -72,22 +81,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuickDeltaCheck" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sandbox.QuickDeltaCheck" />
+    <configuration name="ObstacleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sandbox.ObstacleTest" />
       <module name="KivaWorld" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value=".*" />
+          <option name="PATTERN" value="sandbox.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SolveMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SolveMap" />
-      <module name="KivaWorld" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -99,13 +101,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Scratch" type="Java Scratch" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Scratch" />
+      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestPoint" />
+        <item itemvalue="Application.ObstacleTest" />
+        <item itemvalue="Java Scratch.Scratch" />
         <item itemvalue="Application.CreateMap" />
         <item itemvalue="Application.KivaSolver" />
-        <item itemvalue="Application.SolveMap" />
-        <item itemvalue="Application.TestPoint" />
-        <item itemvalue="Application.QuickDeltaCheck" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656550515641</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix CreateMap unsolvable floorMaps">
+      <created>1656551028041</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656551028041</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
