@@ -43,6 +43,20 @@ public class TestPoint {
         return pad.toString();
     }
 
+    //todo test rotate method for expected points
+    private int rotateX(int a, int b, double theta){
+        theta = Math.toRadians(theta);
+        Point rotatePoint = new Point((Math.toIntExact(Math.round( a * Math.cos(theta) + (b * Math.sin(theta)))))
+                ,(Math.toIntExact(Math.round((-a * Math.sin(theta)) + (b * Math.cos(theta))))));
+        return rotatePoint.getX();
+    }
+    private int rotateY(int a, int b, double theta){
+        theta = Math.toRadians(theta);
+        Point rotatePoint = new Point((Math.toIntExact(Math.round( a * Math.cos(theta) + (b * Math.sin(theta)))))
+                ,(Math.toIntExact(Math.round((-a * Math.sin(theta)) + (b * Math.cos(theta))))));
+        return rotatePoint.getY();
+    }
+
     /**
      * Creates a JFreeChart XYSeries from a Points[] array.
      *
@@ -239,8 +253,6 @@ public class TestPoint {
         point.reflect();
         System.out.println("point.reflect();");
         System.out.println("Expect (" + b + "," + a + ") \nResult " + point + "\n");
-        System.out.println("point.getReference();");
-        System.out.println("Expect (" + a + "," + b + ") \nResult " + point.getReference() + "\n");
 
         // Convert a Points[] array shape to an XYSeries for the JFreeChart XYChart chart display.
         XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
@@ -322,8 +334,6 @@ public class TestPoint {
         point.reflectX();
         System.out.println("point.reflectX();");
         System.out.println("Expect (" + a + "," + -b + ") \nResult " + point + "\n");
-        System.out.println("point.getReference();");
-        System.out.println("Expect (" + a + "," + b + ") \nResult " + point.getReference() + "\n");
 
         // Convert a Points[] array shape to an XYSeries for the JFreeChart XYChart chart display.
         XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
@@ -388,8 +398,6 @@ public class TestPoint {
         point.reflectY();
         System.out.println("point.reflectY();");
         System.out.println("Expect (" + -a + "," + b + ") \nResult " + point + "\n");
-        System.out.println("point.getReference();");
-        System.out.println("Expect (" + a + "," + b + ") \nResult " + point.getReference() + "\n");
 
         // Convert a Points[] array shape to an XYSeries for the JFreeChart XYChart chart display.
         XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
@@ -436,6 +444,150 @@ public class TestPoint {
 
         ChartIt chartIt = new ChartIt(xySeriesCollection);
         chartIt.setWindowTitle("Test Point.reflectY()");
+        chartIt.chartIt(chartIt);
+    }
+
+    /**
+     * Tests rotate(),
+     * which rotates the Point (x,y) by angle theta (in degrees) centered on the origin (0,0)
+     *
+     * @param a An integer value for x, as well as a base integer value for angle theta in degrees.
+     * @param b An integer value for y.
+     */
+    public void testRotate(int a, int b) {
+        System.out.println("********** TEST ROTATE **********\n");
+        // Perform basic tests and output to the console terminal
+        Point point = new Point(a, b, new Point(a, b));
+        System.out.println("Point point = new Point(" + a + "," + b + ");");
+        System.out.println("Expect (" + a + "," + b + ") \nResult " + point + "\n");
+        point.rotate(90);
+        System.out.println("point.rotate(90);");
+        System.out.println("Expect (" + b + "," + -a + ") \nResult " + point + "\n");
+        point.rotate(180);
+        System.out.println("point.rotate(180);");
+        System.out.println("Expect (" + -b + "," + a + ") \nResult " + point + "\n");
+        point.rotate(270);
+        System.out.println("point.rotate(270);");
+        System.out.println("Expect (" + -a + "," + -b + ") \nResult " + point + "\n");
+
+        // Convert a Points[] array shape to an XYSeries for the JFreeChart XYChart chart display.
+        XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
+        Point[] originalPointsArray = createShape(a, b, true);
+        // Convert the Points[] array to an XYSeriesCollection
+        xySeriesCollection.addSeries(xySeries(originalPointsArray,
+                "Point[] points = {new Point(" + a + "," + b + "),...}"));
+
+        // Re-create original shape and reflect all points.
+        Point[] reflectedPointsArray = createShape(a, b, false);
+        for (Point reflectedPoint : reflectedPointsArray) {
+            reflectedPoint.rotate(90);
+        }
+
+        System.out.println("for(Point point : pointsArray){");
+        System.out.println(padLeft(4) + "point.rotate(90);");
+        System.out.println("}");
+        System.out.println("Expect [(" + b + "," + -a + "), ("
+                + (2 * b) + "," + -(2 * a) + "), ("
+                + b + "," + -(4 * a) + "), ("
+                + b + "," + -a + ")] \nResult "
+                + Arrays.deepToString(reflectedPointsArray) + "\n");
+        //Add the reflected Points[] array to an XYSeriesCollection
+        xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
+                "for(Point point : points){point.rotate(" + (90) + "));}"));
+
+        // Re-create original shape and reflect all points.
+        reflectedPointsArray = createShape(a, b, false);
+        for (Point reflectedPoint : reflectedPointsArray) {
+            reflectedPoint.rotate(180);
+        }
+
+        System.out.println("for(Point point : pointsArray){");
+        System.out.println(padLeft(4) + "point.rotate(180);");
+        System.out.println("}");
+        System.out.println("Expect [(" + -a + "," + -b + "), ("
+                +  -(2 * a)+ "," + -(2 * b) + "), ("
+                + -(4 * a) + "," + -b + "), ("
+                + -a + "," + -b + ")] \nResult "
+                + Arrays.deepToString(reflectedPointsArray) + "\n");
+        //Add the reflected Points[] array to an XYSeriesCollection
+        xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
+                "for(Point point : points){point.rotate(" + (180) + "));}"));
+
+        // Re-create original shape and reflect all points.
+        reflectedPointsArray = createShape(a, b, false);
+        for (Point reflectedPoint : reflectedPointsArray) {
+            reflectedPoint.rotate(270);
+        }
+
+        System.out.println("for(Point point : pointsArray){");
+        System.out.println(padLeft(4) + "point.rotate(270);");
+        System.out.println("}");
+        System.out.println("Expect [(" + -b + "," + a + "), ("
+                + -(2 * b) + "," + (2 * a) + "), ("
+                + -b + "," + (4 * a) + "), ("
+                + -b + "," + a + ")] \nResult "
+                + Arrays.deepToString(reflectedPointsArray) + "\n");
+        //Add the reflected Points[] array to an XYSeriesCollection
+        xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
+                "for(Point point : points){point.rotate(" + (270) + "));}"));
+
+
+        // Re-create original shape and reflect all points.
+        reflectedPointsArray = createShape(a, b, false);
+        for (Point reflectedPoint : reflectedPointsArray) {
+            reflectedPoint.rotate(Math.abs((a * 6)+5));
+        }
+
+//        System.out.println("for(Point point : pointsArray){");
+//        System.out.println(padLeft(4) + "point.rotate(" + (Math.abs((a * 6)+5)) + ");");
+//        System.out.println("}");
+//        System.out.println("Expect [(" + b + "," + a + "), ("
+//                + (2 * b) + "," + (2 * a) + "), ("
+//                + b + "," + (4 * a) + "), ("
+//                + b + "," + a + ")] \nResult "
+//                + Arrays.deepToString(reflectedPointsArray) + "\n");
+        //Add the reflected Points[] array to an XYSeriesCollection
+        xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
+                "for(Point point : points){point.rotate(" + (Math.abs((a * 6) + 5)) + "));}"));
+
+        // Re-create original shape and reflect all points.
+        reflectedPointsArray = createShape(a, b, false);
+        for (Point reflectedPoint : reflectedPointsArray) {
+            reflectedPoint.rotate(Math.abs((a * 12)+5));
+        }
+
+//        System.out.println("for(Point point : pointsArray){");
+//        System.out.println(padLeft(4) + "point.rotate();");
+//        System.out.println("}");
+//        System.out.println("Expect [(" + b + "," + a + "), ("
+//                + (2 * b) + "," + (2 * a) + "), ("
+//                + b + "," + (4 * a) + "), ("
+//                + b + "," + a + ")] \nResult "
+//                + Arrays.deepToString(reflectedPointsArray) + "\n");
+        //Add the reflected Points[] array to an XYSeriesCollection
+        xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
+                "for(Point point : points){point.rotate(" + (Math.abs((a * 12) + 5)) + "));}"));
+
+        // Re-create original shape and reflect all points.
+        reflectedPointsArray = createShape(a, b, false);
+        for (Point reflectedPoint : reflectedPointsArray) {
+            reflectedPoint.rotate(Math.abs((a * 18)+5));
+        }
+
+//        System.out.println("for(Point point : pointsArray){");
+//        System.out.println(padLeft(4) + "point.rotate();");
+//        System.out.println("}");
+//        System.out.println("Expect [(" + b + "," + a + "), ("
+//                + (2 * b) + "," + (2 * a) + "), ("
+//                + b + "," + (4 * a) + "), ("
+//                + b + "," + a + ")] \nResult "
+//                + Arrays.deepToString(reflectedPointsArray) + "\n");
+        //Add the reflected Points[] array to an XYSeriesCollection
+        xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
+                "for(Point point : points){point.rotate(" + (Math.abs((a * 18) + 5)) + "));}"));
+
+        ChartIt chartIt = new ChartIt(xySeriesCollection);
+        chartIt.setWindowTitle("Test Point.rotate(θ)");
         chartIt.chartIt(chartIt);
     }
 
@@ -490,6 +642,7 @@ public class TestPoint {
         System.out.println(point3.equals(point1));
     }
 
+
     public static void main(String[] args) {
         System.out.println("********** POINT TESTS **********\n");
         Random random = new Random();
@@ -508,10 +661,11 @@ public class TestPoint {
 //        testPoint.testConstructors(a, b);
 //        testPoint.testSetters(a, b);
 //        testPoint.testTranslate(a, b);
-        testPoint.testReflect(a, b);
+//        testPoint.testReflect(a, b);
 //        testPoint.testReflectX(a, b);
 //        testPoint.testReflectY(a b);
 //        testPoint.testReflectNegative(a, b);
+        testPoint.testRotate(-12, b);
 //        testPoint.testClone(a, b);
     }
 }

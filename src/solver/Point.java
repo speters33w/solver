@@ -287,6 +287,24 @@ public class Point implements Cloneable, Serializable {
         this.translate(h,k);
     }
 
+    //todo write for rotation around a point not origin.
+    /**
+     * Rotates the Point {@code (x,y)} by angle theta (in degrees) centered on the origin {@code (0,0))},
+     * using the formula:
+     * <pre>
+     * x' = x cos θ + y sin θ
+     * y' = -x sin θ + y cos θ.
+     * </pre>
+     *
+     * @param angdeg double, the angle to rotate the Point.
+     */
+    public void rotate(double angdeg){
+        double theta = Math.toRadians(angdeg);
+        int xr = Math.toIntExact(Math.round(( x * Math.cos(theta)) + (y * Math.sin(theta))));
+        this.y = Math.toIntExact(Math.round((-x * Math.sin(theta)) + (y * Math.cos(theta))));
+        this.x = xr;
+    }
+
     /**
      * Create a new Point with the same values as this Point.
      *

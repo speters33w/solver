@@ -48,7 +48,7 @@ public class ChartIt extends ApplicationFrame {
     }
 
     private java.awt.Color selectSeriesColor(int series) {
-        switch (series % 4){
+        switch (series % 7){
             case 0 :
                 return Color.RED;
             case 1:
@@ -57,6 +57,12 @@ public class ChartIt extends ApplicationFrame {
                 return Color.GREEN;
             case 3:
                 return Color.YELLOW;
+            case 4:
+                return Color.MAGENTA;
+            case 5:
+                return Color.CYAN;
+            case 6:
+                return Color.PINK;
         }
         return Color.BLACK;
     }

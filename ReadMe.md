@@ -240,7 +240,7 @@ Process finished with exit code 0
 
 ### Reflect
 
-Reflects of the Point `(x,y)` across the line `y = x`, reversing the `(x,y)` coordinate values to `(y,x)`.
+* Reflects of the Point `(x,y)` across the line `y = x`, reversing the `(x,y)` coordinate values to `(y,x)`.
 
 Note: This method can convert `(row,col)` in an `array[][]` to `(x,y)`.
 
@@ -294,6 +294,64 @@ Note: This method can convert `(row,col)` in an `array[][]` to `(x,y)`.
         Process finished with exit code 0
 
 
+```
+
+### Rotate
+
+* Rotates the Point `(x,y)` by angle `theta` (in degrees) centered on the origin `(0,0)`.
+
+![TestReflect](img/TestRotate.svg)
+
+```java
+********** POINT TESTS **********
+
+a = 1, b = 7
+
+********** TEST ROTATE **********
+
+Point point = new Point(-12,7);
+Expect (-12,7) 
+Result (-12,7)
+
+point.rotate(90);
+Expect (7,12) 
+Result (7,12)
+
+point.rotate(180);
+Expect (-7,-12) 
+Result (-7,-12)
+
+point.rotate(270);
+Expect (12,-7) 
+Result (12,-7)
+
+Point[] points = {new Point(-12,7),
+                new Point(-24,14),
+                new Point(-48,7),
+                new Point(-12,7)};
+Expect [(-12,7), (-24,14), (-48,7), (-12,7)] 
+Result [(-12,7), (-24,14), (-48,7), (-12,7)]
+
+for(Point point : pointsArray){
+    point.rotate(90);
+}
+Expect [(7,12), (14,24), (7,48), (7,12)] 
+Result [(7,12), (14,24), (7,48), (7,12)]
+
+for(Point point : pointsArray){
+    point.rotate(180);
+}
+Expect [(12,-7), (24,-14), (48,-7), (12,-7)] 
+Result [(12,-7), (24,-14), (48,-7), (12,-7)]
+
+for(Point point : pointsArray){
+    point.rotate(270);
+}
+Expect [(-7,-12), (-14,-24), (-7,-48), (-7,-12)] 
+Result [(-7,-12), (-14,-24), (-7,-48), (-7,-12)]
+
+
+Process finished with exit code 0
 ```
 
 ### ReflectX
