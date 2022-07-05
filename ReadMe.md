@@ -285,7 +285,7 @@ Note: This method can convert `(row,col)` in an `array[][]` to `(x,y)`.
         Result [(-3,14), (1,21), (-3,35), (-3,14)]
 
         for(Point point : pointsArray){
-            point.reflect(7,4);
+            point.glide(7,4);
         }
         Expect [(11,11), (15,18), (11,32), (11,11)]
         Result [(11,11), (15,18), (11,32), (11,11)]

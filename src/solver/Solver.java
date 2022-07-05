@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  * or from start to end if there is no pod in the map.
  *
  * @author StephanPeters (speters33w)
- * @version 20220629.2100
+ * @version 20220704.2330
  * @see Maze
  */
 public class Solver {
@@ -23,14 +23,12 @@ public class Solver {
     boolean debugging = false;
     boolean unsolvable = false;
 
-    /**
-     * 2D Directions array (ordered coordinate integer pairs)
-     * {@code [0] = UP, [1] = RIGHT [2] = DOWN [3] = LEFT}
-     * Points are in reflected format [row][col] or (y,x).
-     */
-    static final int[][] DIRECTIONS = facingDirection.directions();
-    static final Point[] DIRECTIONSp = facingDirection.deltas();
+    static final Point[] DIRECTIONS = facingDirection.deltas();
 
+    /**
+     * enum facingDirection gives directions UP, RIGHT, DOWN, and LEFT with associated Point deltas.
+     * Delta Points are in {@code (row, col)} , or {@code (y,x)} format.
+     */
     private enum facingDirection {
         UP(new Point(-1, 0)),
         RIGHT(new Point(0, 1)),
@@ -47,7 +45,7 @@ public class Solver {
             return this.delta;
         }
 
-        static Point[] deltas(){
+        static Point[] deltas() {
             int i = -1;
             final Point[] deltas = new Point[facingDirection.values().length];
             for (facingDirection value : facingDirection.values()) {
@@ -55,17 +53,6 @@ public class Solver {
                 deltas[i] = value.getDelta();
             }
             return deltas;
-        }
-
-        static int[][] directions() {
-            int i = -1;
-            final int[][] directions = new int[facingDirection.values().length][2];
-            for (facingDirection value : facingDirection.values()) {
-                i++;
-                directions[i][0] = value.getDelta().getX();
-                directions[i][1] = value.getDelta().getY();
-            }
-            return directions;
         }
     }
 
@@ -167,9 +154,8 @@ public class Solver {
             }
 
 
-            //todo eliminate 2D integer array DIRECTIONS and use a point array from facingDirection enum?
-            for (int[] direction : DIRECTIONS) {
-                Point coordinate = new Point(currentPoint.getX() + direction[0], currentPoint.getY() + direction[1], currentPoint);
+            for (Point direction : DIRECTIONS) {
+                Point coordinate = new Point(currentPoint.getX() + direction.getX(), currentPoint.getY() + direction.getY(), currentPoint);
                 nextToVisit.add(coordinate);
                 maze.setVisited(currentPoint.getX(), currentPoint.getY(), true);
             }

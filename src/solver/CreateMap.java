@@ -197,9 +197,9 @@ public class CreateMap {
      * Opens a JFileChooser save dialog and allows the user to save a String to a file.
      *
      * @param map String to be saved to the file
+     * @return The local file name of the saved file
      */
-    public void saveFile(String map) {
-        //todo return String with relative filepath for auto-solve
+    public String saveFile(String map) {
         try {
             File path;
             JFileChooser fileChooser = new JFileChooser();
@@ -211,24 +211,28 @@ public class CreateMap {
             fileChooser.setVisible(true);
             if (option == JFileChooser.APPROVE_OPTION) {
                 path = new File(fileChooser.getSelectedFile().getAbsolutePath());
+                String name = path.getName();
                 FileWriter fileWriter = new FileWriter(path);
                 fileWriter.write(map);
                 fileWriter.flush();
                 fileWriter.close();
                 System.out.println("File saved.");
+                return name;
             } else {
                 System.out.println("Save canceled");
+                return "";
             }
         } catch (IOException e) {
             System.out.println("IO Error. Save canceled");
             e.printStackTrace();
         }
+        return "";
     }
 
     public static void main(String[] args) {
         CreateMap kivaCreateMap = new CreateMap();
         String map = kivaCreateMap.randomMapString();
         System.out.println(map);
-        kivaCreateMap.saveFile(map);
+        String floorMapFileName = kivaCreateMap.saveFile(map);
     }
 }

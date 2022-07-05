@@ -1,11 +1,23 @@
-import solver.Point;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import solver.Point;
 
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * Test class for Point.java.
+ * Tests methods contained in Point.java, prints expected and actual results to the console,
+ * then provides an org.jfree.data.xy.XYSeriesCollection to ChartIt to provide a graphic representation.
+ *
+ * @author StephanPeters (speters33w)
+ * @version 20220704.1100
+ * @see Point
+ * @see XYSeriesCollection
+ * @see org.jfree.chart.plot.XYPlot
+ */
 public class TestPoint {
+    //todo see if most XYPlot can be replaced with javafx.scene.chart.XYChart to eliminate external dependency
 
     boolean debugging = false;
 
@@ -15,31 +27,6 @@ public class TestPoint {
 
     public TestPoint(boolean debugging) {
         this.debugging = debugging;
-    }
-
-    public static void main(String[] args) {
-        System.out.println("********** POINT TESTS **********\n");
-        Random random = new Random();
-        int a;
-        int b;
-        // If a or b is 0, shape created will be a line.
-        // if (a == b || a == -b) this can cause human confusion in test results.
-        do {
-            a = random.nextInt(19) - 9;
-            b = random.nextInt(19) - 9;
-        } while (a == 0 || b == 0 || a == b || a == -b);
-        System.out.println("a = " + a + ", b = " + b + "\n");
-        TestPoint testPoint = new TestPoint();
-
-
-//        testPoint.testConstructors(a, b);
-//        testPoint.testSetters(a, b);
-//        testPoint.testTranslate(a, b);
-        testPoint.testReflect(a, b);
-//        testPoint.testReflectX(a, b);
-//        testPoint.testReflectY(a b);
-//        testPoint.testReflectNegative(a, b);
-//        testPoint.testClone(a, b);
     }
 
     /**
@@ -287,7 +274,6 @@ public class TestPoint {
         System.out.println("for(Point point : pointsArray){");
         System.out.println(padLeft(4) + "point.reflect("+ a + ");");
         System.out.println("}");
-        //todo fix expect lines in TestPoint.testReflect(a)
         System.out.println("Expect [(" + (b - a) + "," + (2 * a) + "), ("
                 + (2 * b - a) + "," + (3 * a) + "), ("
                 + (b - a) + "," + (5 * a) + "), ("
@@ -306,11 +292,10 @@ public class TestPoint {
         System.out.println("for(Point point : pointsArray){");
         System.out.println(padLeft(4) + "point.glide("+ a + "," + b + ");");
         System.out.println("}");
-        //todo fix expect lines in TestPoint.testReflect.glide
-        System.out.println("Expect [(" + (b-a) + "," + (a+b) + "), ("
-                + (2 * b - a) + "," + (2 * a + b) + "), ("
-                + (b-a) + "," + (4 * a) + "), ("
-                + (b-a) + "," + (a+b) + ")] \nResult "
+        System.out.println("Expect [(" + (b + a) + "," + (a + b) + "), ("
+                + ((2 * b) + a) + "," + ((2 * a) + b) + "), ("
+                + (b + a) + "," + ((4 * a) + b) + "), ("
+                + (b + a) + "," + (a + b) + ")] \nResult "
                 + Arrays.deepToString(reflectedPointsArray) + "\n");
         //Add the reflected Points[] array to an XYSeriesCollection
         xySeriesCollection.addSeries(xySeries(reflectedPointsArray,
@@ -503,5 +488,30 @@ public class TestPoint {
         point1.setReference(a + 2, b + 2);
         point3.translate(-2, -2);
         System.out.println(point3.equals(point1));
+    }
+
+    public static void main(String[] args) {
+        System.out.println("********** POINT TESTS **********\n");
+        Random random = new Random();
+        int a;
+        int b;
+        // If a or b is 0, shape created will be a line.
+        // if (a == b || a == -b) this can cause human confusion in test results.
+        do {
+            a = random.nextInt(19) - 9;
+            b = random.nextInt(19) - 9;
+        } while (a == 0 || b == 0 || a == b || a == -b);
+        System.out.println("a = " + a + ", b = " + b + "\n");
+        TestPoint testPoint = new TestPoint();
+
+
+//        testPoint.testConstructors(a, b);
+//        testPoint.testSetters(a, b);
+//        testPoint.testTranslate(a, b);
+        testPoint.testReflect(a, b);
+//        testPoint.testReflectX(a, b);
+//        testPoint.testReflectY(a b);
+//        testPoint.testReflectNegative(a, b);
+//        testPoint.testClone(a, b);
     }
 }
