@@ -233,6 +233,6 @@ public class CreateMap {
         CreateMap kivaCreateMap = new CreateMap();
         String map = kivaCreateMap.randomMapString();
         System.out.println(map);
-        //String floorMapFileName = kivaCreateMap.saveFile(map);
+        String floorMapFileName = kivaCreateMap.saveFile(map);
     }
 }

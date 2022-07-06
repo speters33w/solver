@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Renamed getMapString() to asString()">
-      <change afterPath="$PROJECT_DIR$/src/kivaworld/package-info.java" afterDir="false" />
+    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Prep for merge with KivaWorld">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SolveMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/SolveMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kivaworld/InvalidMapLayoutException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kivaworld/InvalidMapLayoutException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kivaworld/MapResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kivaworld/MapResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/solver/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/CreateMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/solver/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/Maze.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657114806140</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Prep for merge with KivaWorld">
+      <created>1657128211596</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1657128211596</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -254,6 +254,7 @@
     <MESSAGE value="Update saveMap to return file name." />
     <MESSAGE value="Added Point.rotate()" />
     <MESSAGE value="Renamed getMapString() to asString()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed getMapString() to asString()" />
+    <MESSAGE value="Prep for merge with KivaWorld" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prep for merge with KivaWorld" />
   </component>
 </project>
