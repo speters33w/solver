@@ -11,7 +11,7 @@ import java.util.Scanner;
  * Utility to open and read Kiva map files.
  *
  * @author StephanPeters (speters33w)
- * @version 20220704.2330
+ * @version 20220705.100
  * @see FloorMap
  */
 public class MapResource {
@@ -69,7 +69,7 @@ public class MapResource {
      * @return the map File as a String.
      *
      */
-    public static String getMapString(File map) {
+    public static String asString(File map) {
         StringBuilder mapString = new StringBuilder();
         try (Scanner input = new Scanner(map)) {
             while (input.hasNextLine()) {
