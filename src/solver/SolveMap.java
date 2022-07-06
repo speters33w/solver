@@ -13,7 +13,7 @@ public class SolveMap {
      *
      * @param printKivaCommands boolean true = print Kiva commands to console after solving maze.
      */
-    public void setKivaCommands(boolean printKivaCommands){
+    public static void setKivaCommands(boolean printKivaCommands){
         kivaCommands = printKivaCommands;
     }
 
@@ -33,6 +33,15 @@ public class SolveMap {
         fileChooser.showDialog(null,"Select");
         fileChooser.setVisible(true);
         return fileChooser.getSelectedFile();
+    }
+
+    /**
+     * Returns a java.io.File resource given a filename.
+     * @param fileName The filename of the file.
+     * @return the file.
+     */
+    public static File getFile(String fileName){
+        return new File(fileName);
     }
 
     /**
@@ -56,4 +65,3 @@ public class SolveMap {
         solve(selectFile());
     }
 }
-

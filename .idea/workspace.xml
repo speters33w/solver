@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Prep for merge with KivaWorld">
+    <list default="true" id="f4f7cc07-ede7-424f-93d6-aaa198719530" name="Changes" comment="Edit CreateMap">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657128211596</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Edit CreateMap">
+      <created>1657133037062</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1657133037062</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -255,6 +262,7 @@
     <MESSAGE value="Added Point.rotate()" />
     <MESSAGE value="Renamed getMapString() to asString()" />
     <MESSAGE value="Prep for merge with KivaWorld" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prep for merge with KivaWorld" />
+    <MESSAGE value="Edit CreateMap" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit CreateMap" />
   </component>
 </project>
