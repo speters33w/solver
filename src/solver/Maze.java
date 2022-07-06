@@ -10,6 +10,9 @@ import java.util.Scanner;
  * Maze class for the solver.
  * Creates a 2D array from a file,
  * and populates the array with objects represented in the maze text file.
+ *
+ * This is a modified version of <a href = "https://github.com/eugenp/tutorials/blob/master/algorithms-modules/algorithms-miscellaneous-2/src/main/java/com/baeldung/algorithms/maze/solver/Maze.java">
+ *     com.baeldung.algorithms.maze.solver</a>
  */
 public class Maze {
     private static final int EMPTY = 0;

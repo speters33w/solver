@@ -21,7 +21,7 @@ import java.util.stream.Stream;
 public class Solver {
 
     boolean debugging = false;
-    boolean unsolvable = false;
+    public boolean unsolvable = false;
 
     static final Point[] DIRECTIONS = facingDirection.deltas();
 

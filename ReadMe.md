@@ -38,7 +38,7 @@ Width = 18 Height = 13
 ## Sample floor map solver solution:
 
 ```
-SolveMap.main(random_floor_map.txt);
+solver.SolveMap.main(random_floor_map.txt);
 ------------------
 |     ........   |
 |   * .     *.   |
@@ -64,7 +64,7 @@ The robot (Kiva) gets a pod at point P and drops it off at the drop zone D.
 ## Sample maze solver solution:
 
 ```
-SolveMap.main(maze1.txt)
+solver.SolveMap.main(maze1.txt)
 
 ----------
 |K....   |

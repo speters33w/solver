@@ -106,12 +106,12 @@ public class MapResource {
             fileChooser.setVisible(true);
             if (option == JFileChooser.APPROVE_OPTION) {
                 path = new File(fileChooser.getSelectedFile().getAbsolutePath());
-                String name = path.getName();
+                String name = path.toString(); //path.getName();
                 FileWriter fileWriter = new FileWriter(path);
                 fileWriter.write(map);
                 fileWriter.flush();
                 fileWriter.close();
-                System.out.println("File saved.");
+                System.out.println(name + " saved.");
                 return name;
             } else {
                 System.out.println("Save canceled.");

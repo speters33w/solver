@@ -1,6 +1,4 @@
-import solver.Maze;
-import solver.Point;
-import solver.Solver;
+package solver;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -8,8 +6,15 @@ import java.io.File;
 import java.util.List;
 
 public class SolveMap {
-    public static void main(String[] args){
-        solve(selectFile());
+    private static boolean kivaCommands = false;
+
+    /**
+     * If parameter is set to true, prints Kiva commands to console after solving maze.
+     *
+     * @param printKivaCommands boolean true = print Kiva commands to console after solving maze.
+     */
+    public void setKivaCommands(boolean printKivaCommands){
+        kivaCommands = printKivaCommands;
     }
 
     /**
@@ -40,9 +45,15 @@ public class SolveMap {
         List<Point> path = solver.solve(maze);
         maze.printPath(path);
         String commands = solver.constructKivaCommands(path);
-        //System.out.println("Kiva Commands:\n" + commands);
+        if (kivaCommands) {
+            System.out.println("Kiva Commands:\n" + commands);
+        }
         maze.reset();
         return commands;
+    }
+
+    public static void main(String[] args){
+        solve(selectFile());
     }
 }
 
